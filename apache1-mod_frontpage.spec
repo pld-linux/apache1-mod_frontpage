@@ -17,11 +17,11 @@ Patch0:		%{arname}-PLD.patch
 Patch1:		%{arname}-Makefile.patch
 Patch2:		%{arname}-fpexec-PLD.patch
 URL:		http://home.edo.uni-dortmund.de/~chripo/
-Prereq:		apache(EAPI)  >= 1.3.23
-Prereq:		%{apxs}
-Requires:	apache
 BuildRequires:	apache(EAPI)-devel >= 1.3.23
 BuildRequires:	perl
+Prereq:		%{apxs}
+Prereq:		apache(EAPI)  >= 1.3.23
+Requires:	apache
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	mod_frontpage
 
@@ -59,7 +59,8 @@ uruchamiania fpinstall.sh lub fpsrvadm.exe z pow³oki systemowej).
 
 %build
 perl Makefile.PL
-%{__make} CFLAGS="%{rpmcflags} -DLINUX=22 -DINET6 -Dss_family=__ss_family -Dss_len=__ss_len -DDEV_RANDOM=/dev/random -DEAPI -DEAPI_MM"
+%{__make} \
+	CFLAGS="%{rpmcflags} -DLINUX=22 -DINET6 -Dss_family=__ss_family -Dss_len=__ss_len -DDEV_RANDOM=/dev/random -DEAPI -DEAPI_MM"
 
 %install
 rm -rf $RPM_BUILD_ROOT
