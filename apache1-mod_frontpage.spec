@@ -6,8 +6,8 @@ Summary:	The improved mod_frontpage module for the Apache Web server
 Summary(pl):	Ulepszony modu³ mod_frontpage dla serwera Apache
 Name:		apache-mod_%{mod_name}
 Version:	1.6.1
-Release:	1
-License:	Apache License
+Release:	2
+License:	Apache
 Group:		Networking/Daemons
 #Source0: http://home.edo.uni-dortmund.de/~chripo/download/%{name}-%{version}mdk-1.3.19.tar.bz2
 #The patch is now maintained by FreeBSD
@@ -67,8 +67,6 @@ install -d $RPM_BUILD_ROOT{%{_pkglibdir},%{_sbindir}}
 install mod_%{mod_name}.so $RPM_BUILD_ROOT%{_pkglibdir}
 install fp{exec,static} $RPM_BUILD_ROOT%{_sbindir}
 
-gzip -9nf CHANGES FEATURES LICENSE README
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -88,7 +86,7 @@ fi
 
 %files
 %defattr(644,root,root,755)
-%doc *.gz
+%doc CHANGES FEATURES LICENSE README
 %attr(755,root,root) %{_pkglibdir}/*
 %attr(4750,root,root) %{_sbindir}/fpexec
 %attr(755,root,root) %{_sbindir}/fpstatic
