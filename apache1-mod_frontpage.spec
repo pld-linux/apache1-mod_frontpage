@@ -1,10 +1,8 @@
 %define 	mod_name	frontpage
-%define		arname		mod_%{mod_name}
-%define		apxs		/usr/sbin/apxs
-
+%define		apxs		/usr/sbin/apxs1
 Summary:	The improved mod_frontpage module for the Apache Web server
 Summary(pl):	Ulepszony modu³ mod_frontpage dla serwera Apache
-Name:		apache-mod_%{mod_name}
+Name:		apache1-mod_%{mod_name}
 Version:	1.6.2
 Release:	1
 License:	Apache
@@ -14,16 +12,16 @@ Source0:	http://dl.sourceforge.net/mirfak/mod_%{mod_name}_mirfak-%{version}.tar.
 Source1:	%{name}.pl
 Patch0:		%{name}-mirfak.patch
 URL:		http://mirfak.sourceforge.net/
-BuildRequires:	apache(EAPI)-devel >= 1.3.23
-BuildRequires:	perl
-PreReq:		apache(EAPI) >= 1.3.23
+BuildRequires:	apache1-devel >= 1.3.23
+BuildRequires:	%{__perl}
+PreReq:		apache1 >= 1.3.23
 Requires(post,preun):	%{apxs}
-Requires:	apache
+Requires:	apache1
+Obsoletes:	apache-mod_%{mod_name} <= %{version}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-Obsoletes:	mod_frontpage
 
 %define		_pkglibdir	%(%{apxs} -q LIBEXECDIR)
-%define		_sysconfdir	/etc/httpd
+%define		_sysconfdir	/etc/apache
 
 %description
 This is a module for the Apache HTTP Server
@@ -49,11 +47,11 @@ rozszerzeniami FrontPage przy u¿yciu klienta FrontPage zamiast przez
 uruchamiania fpinstall.sh lub fpsrvadm.exe z pow³oki systemowej).
 
 %prep
-%setup -q -n %{arname}_mirfak-%{version}
+%setup -q -n mod_%{mod_name}_mirfak-%{version}
 %patch0 -p1
 
 %build
-perl %{SOURCE1}
+%{__perl} %{SOURCE1}
 %{__make}
 
 %install
@@ -68,15 +66,15 @@ rm -rf $RPM_BUILD_ROOT
 
 %post
 %{apxs} -e -a -n %{mod_name} %{_pkglibdir}/mod_%{mod_name}.so 1>&2
-if [ -f /var/lock/subsys/httpd ]; then
-	/etc/rc.d/init.d/httpd restart 1>&2
+if [ -f /var/lock/subsys/apache ]; then
+	/etc/rc.d/init.d/apache restart 1>&2
 fi
 
 %preun
 if [ "$1" = "0" ]; then
 	%{apxs} -e -A -n %{mod_name} %{_pkglibdir}/mod_%{mod_name}.so 1>&2
-	if [ -f /var/lock/subsys/httpd ]; then
-		/etc/rc.d/init.d/httpd restart 1>&2
+	if [ -f /var/lock/subsys/apache ]; then
+		/etc/rc.d/init.d/apache restart 1>&2
 	fi
 fi
 
