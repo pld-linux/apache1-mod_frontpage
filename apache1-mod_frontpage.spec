@@ -6,7 +6,7 @@ Summary:	The improved mod_frontpage module for the Apache Web server
 Summary(pl):	Ulepszony modu³ mod_frontpage dla serwera Apache
 Name:		apache-mod_%{mod_name}
 Version:	1.6.1
-Release:	0.1
+Release:	1
 License:	Apache License
 Group:		Networking/Daemons
 #Source0: http://home.edo.uni-dortmund.de/~chripo/download/%{name}-%{version}mdk-1.3.19.tar.bz2
@@ -17,11 +17,12 @@ Patch1:		%{arname}-Makefile.patch
 Patch2:		%{arname}-fpexec-PLD.patch
 URL:		http://home.edo.uni-dortmund.de/~chripo/
 Prereq:		apache(EAPI)  >= 1.3.23
-Prereq:		%{_sbindir}/apxs
+Prereq:		%{apxs}
 Requires:	apache
 BuildRequires:	apache(EAPI)-devel >= 1.3.23
 BuildRequires:	perl
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+Obsoletes:	mod_frontpage
 
 %define         _pkglibdir      %(%{apxs} -q LIBEXECDIR)
 %define         _sysconfdir     /etc/httpd
@@ -62,10 +63,11 @@ perl Makefile.PL
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_pkglibdir},%{_sbindir}}
+
 install mod_%{mod_name}.so $RPM_BUILD_ROOT%{_pkglibdir}
 install fp{exec,static} $RPM_BUILD_ROOT%{_sbindir}
 
-gzip -9nf {CHANGES,FEATURES,INSTALL,LICENSE,README}
+gzip -9nf CHANGES FEATURES LICENSE README
 
 %clean
 rm -rf $RPM_BUILD_ROOT
