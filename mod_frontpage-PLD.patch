@@ -1,0 +1,11 @@
+--- Makefile.PL.orig	Sun Feb  3 12:20:53 2002
++++ Makefile.PL	Tue Apr 16 09:40:29 2002
+@@ -8,7 +8,7 @@
+ # Modified for the FreeBSD ports system and to work with
+ # FP extensions 5.0 from Martin Blapp <mbr@freebsd.org>
+ #
+-$thechoice="/usr/local/sbin/httpd";
++$thechoice="/usr/sbin/httpd";
+ print "\nLet's see if it's a valid httpd...";
+ $_=`$thechoice -v`;
+ if (/Server version:/) { print " YES!\n"; 
