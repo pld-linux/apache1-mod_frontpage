@@ -11,8 +11,9 @@ URL:		http://home.edo.uni-dortmund.de/~chripo/
 #Source0: http://home.edo.uni-dortmund.de/~chripo/download/%{name}-%{version}mdk-1.3.19.tar.bz2
 #The patch is now maintained by FreeBSD
 Source0:	http://people.freebsd.org/~mbr/distfiles/mod_frontpage-%{version}.tar.bz2
-Patch0:		mod_frontpage-PLD.patch
-Patch1:		mod_frontpage-Makefile.patch
+Patch0:		%{arname}-PLD.patch
+Patch1:		%{arname}-Makefile.patch
+Patch2:		%{arname}-fpexec-PLD.patch
 License:	Apache License
 Prereq:		grep
 Prereq:		apache(EAPI)  >= 1.3.23
@@ -42,6 +43,7 @@ system's shell).
 %setup -q -n %{arname}-%{version}
 %patch -p0
 %patch1 -p0
+%patch2 -p0
 
 %build
 perl Makefile.PL
