@@ -1,6 +1,6 @@
 %define 	mod_name	frontpage
 %define		arname		mod_%{mod_name}
-%define         apxs            /usr/sbin/apxs
+%define		apxs		/usr/sbin/apxs
 
 Summary:	The improved mod_frontpage module for the Apache Web server
 Summary(pl):	Ulepszony modu³ mod_frontpage dla serwera Apache
@@ -19,14 +19,14 @@ Patch2:		%{arname}-fpexec-PLD.patch
 URL:		http://home.edo.uni-dortmund.de/~chripo/
 BuildRequires:	apache(EAPI)-devel >= 1.3.23
 BuildRequires:	perl
-PreReq:		apache(EAPI)  >= 1.3.23
+PreReq:		apache(EAPI) >= 1.3.23
 Requires(post,preun):	%{apxs}
 Requires:	apache
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	mod_frontpage
 
-%define         _pkglibdir      %(%{apxs} -q LIBEXECDIR)
-%define         _sysconfdir     /etc/httpd
+%define		_pkglibdir	%(%{apxs} -q LIBEXECDIR)
+%define		_sysconfdir	/etc/httpd
 
 %description
 This is a module for the Apache HTTP Server
@@ -75,7 +75,7 @@ rm -rf $RPM_BUILD_ROOT
 %post
 %{apxs} -e -a -n %{mod_name} %{_pkglibdir}/mod_%{mod_name}.so 1>&2
 if [ -f /var/lock/subsys/httpd ]; then
-        /etc/rc.d/init.d/httpd restart 1>&2
+	/etc/rc.d/init.d/httpd restart 1>&2
 fi
 
 %preun
