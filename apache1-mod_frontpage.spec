@@ -82,7 +82,7 @@ fi
 
 %files
 %defattr(644,root,root,755)
-%doc CHANGES FEATURES LICENSE README
+%doc *.html CHANGES FEATURES ADME
 %attr(755,root,root) %{_pkglibdir}/*
 %attr(4750,root,root) %{_sbindir}/fpexec
 %attr(755,root,root) %{_sbindir}/fpstatic
