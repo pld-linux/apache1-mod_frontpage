@@ -12,6 +12,7 @@ Group:		Networking/Daemons
 #Source0: http://home.edo.uni-dortmund.de/~chripo/download/%{name}-%{version}mdk-1.3.19.tar.bz2
 #The patch is now maintained by FreeBSD
 Source0:	http://people.freebsd.org/~mbr/distfiles/mod_frontpage-%{version}.tar.bz2
+# Source0-md5:	62a91d885ea6cfb7c45662d7315659d8
 Patch0:		%{arname}-PLD.patch
 Patch1:		%{arname}-Makefile.patch
 Patch2:		%{arname}-fpexec-PLD.patch
