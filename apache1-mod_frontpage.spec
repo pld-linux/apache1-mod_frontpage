@@ -19,8 +19,8 @@ Patch2:		%{arname}-fpexec-PLD.patch
 URL:		http://home.edo.uni-dortmund.de/~chripo/
 BuildRequires:	apache(EAPI)-devel >= 1.3.23
 BuildRequires:	perl
-Prereq:		%{apxs}
-Prereq:		apache(EAPI)  >= 1.3.23
+PreReq:		apache(EAPI)  >= 1.3.23
+Requires(post,preun):	%{apxs}
 Requires:	apache
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	mod_frontpage
