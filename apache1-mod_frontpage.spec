@@ -5,18 +5,15 @@
 Summary:	The improved mod_frontpage module for the Apache Web server
 Summary(pl):	Ulepszony modu³ mod_frontpage dla serwera Apache
 Name:		apache-mod_%{mod_name}
-Version:	1.6.1
-Release:	2
+Version:	1.6.2
+Release:	1
 License:	Apache
 Group:		Networking/Daemons
-#Source0: http://home.edo.uni-dortmund.de/~chripo/download/%{name}-%{version}mdk-1.3.19.tar.bz2
-#The patch is now maintained by FreeBSD
-Source0:	http://people.freebsd.org/~mbr/distfiles/mod_frontpage-%{version}.tar.bz2
-# Source0-md5:	62a91d885ea6cfb7c45662d7315659d8
-Patch0:		%{arname}-PLD.patch
-Patch1:		%{arname}-Makefile.patch
-Patch2:		%{arname}-fpexec-PLD.patch
-URL:		http://home.edo.uni-dortmund.de/~chripo/
+Source0:	http://dl.sourceforge.net/mirfak/mod_%{mod_name}_mirfak-%{version}.tar.bz2
+# Source0-md5:	f7480918382067ce16e7afc40a633be4
+Source1:	%{name}.pl
+Patch0:		%{name}-mirfak.patch
+URL:		http://mirfak.sourceforge.net/
 BuildRequires:	apache(EAPI)-devel >= 1.3.23
 BuildRequires:	perl
 PreReq:		apache(EAPI) >= 1.3.23
@@ -52,15 +49,12 @@ rozszerzeniami FrontPage przy u¿yciu klienta FrontPage zamiast przez
 uruchamiania fpinstall.sh lub fpsrvadm.exe z pow³oki systemowej).
 
 %prep
-%setup -q -n %{arname}-%{version}
-%patch -p0
-%patch1 -p0
-%patch2 -p0
+%setup -q -n %{arname}_mirfak-%{version}
+%patch0 -p1
 
 %build
-perl Makefile.PL
-%{__make} \
-	CFLAGS="%{rpmcflags} -DLINUX=22 -DINET6 -Dss_family=__ss_family -Dss_len=__ss_len -DDEV_RANDOM=/dev/random -DEAPI -DEAPI_MM"
+perl %{SOURCE1}
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
