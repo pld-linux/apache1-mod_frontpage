@@ -4,7 +4,7 @@ Summary:	The improved mod_frontpage module for the Apache Web server
 Summary(pl):	Ulepszony modu³ mod_frontpage dla serwera Apache
 Name:		apache1-mod_%{mod_name}
 Version:	1.6.2
-Release:	1.3
+Release:	2
 License:	Apache
 Group:		Networking/Daemons
 Source0:	http://dl.sourceforge.net/mirfak/mod_%{mod_name}_mirfak-%{version}.tar.bz2
