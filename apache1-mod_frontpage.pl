@@ -1,7 +1,7 @@
 #!/usr/bin/perl
 
 $sbindir="/usr/sbin";
-$apxs="$sbindir/apxs";
+$apxs="$sbindir/apxs1";
 $confdir=`$apxs -q SYSCONFDIR`; 
 $confdir =~ s|\n||;
 $cc=`$apxs -q CC`;
