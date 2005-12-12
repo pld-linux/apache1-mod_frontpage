@@ -12,10 +12,10 @@ Source0:	http://dl.sourceforge.net/mirfak/mod_%{mod_name}_mirfak-%{version}.tar.
 Source1:	%{name}.pl
 Patch0:		%{name}-mirfak.patch
 URL:		http://mirfak.sourceforge.net/
-BuildRequires:	apache1-devel >= 1.3.33-2
 BuildRequires:	%{__perl}
-Requires:		apache1 >= 1.3.33-2
+BuildRequires:	apache1-devel >= 1.3.33-2
 Requires(triggerpostun):	%{apxs}
+Requires:		apache1 >= 1.3.33-2
 Obsoletes:	apache-mod_%{mod_name} <= %{version}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -24,9 +24,9 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 This is a module for the Apache HTTP Server
-<http://httpd.apache.org/>. It replaces the Apache-FP patches
-and module supplied with the FrontPage Server Extensions available
-from Microsoft <http://www.microsoft.com/> and Ready-to-Run Software
+<http://httpd.apache.org/>. It replaces the Apache-FP patches and
+module supplied with the FrontPage Server Extensions available from
+Microsoft <http://www.microsoft.com/> and Ready-to-Run Software
 <http://www.rtr.com/fpsupport/>.
 
 Using this module allows you to use advanced features of the FrontPage
@@ -87,7 +87,7 @@ fi
 %files
 %defattr(644,root,root,755)
 %doc *.html CHANGES FEATURES README
-%attr(640,root,root) %config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/conf.d/*_mod_%{mod_name}.conf
+%attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/conf.d/*_mod_%{mod_name}.conf
 %attr(755,root,root) %{_pkglibdir}/*
 %attr(4750,root,root) %{_sbindir}/fpexec
 %attr(755,root,root) %{_sbindir}/fpstatic
