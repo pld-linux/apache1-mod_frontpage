@@ -17,7 +17,7 @@ BuildRequires:	apache1-devel >= 1.3.33-2
 BuildRequires:	rpmbuild(macros) >= 1.268
 Requires(triggerpostun):	%{apxs}
 Requires:	apache1 >= 1.3.33-2
-Obsoletes:	apache-mod_frontpage <= %{version}
+Obsoletes:	apache-mod_frontpage <= 1.6.2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_pkglibdir	%(%{apxs} -q LIBEXECDIR 2>/dev/null)
