@@ -4,7 +4,7 @@ Summary:	The improved mod_frontpage module for the Apache Web server
 Summary(pl):	Ulepszony modu³ mod_frontpage dla serwera Apache
 Name:		apache1-mod_%{mod_name}
 Version:	1.6.2
-Release:	2
+Release:	3
 License:	Apache
 Group:		Networking/Daemons
 Source0:	http://dl.sourceforge.net/mirfak/mod_%{mod_name}_mirfak-%{version}.tar.bz2
@@ -16,7 +16,7 @@ BuildRequires:	%{__perl}
 BuildRequires:	apache1-devel >= 1.3.33-2
 BuildRequires:	rpmbuild(macros) >= 1.268
 Requires(triggerpostun):	%{apxs}
-Requires:	apache1 >= 1.3.33-2
+Requires:	apache1(EAPI)
 Obsoletes:	apache-mod_frontpage <= 1.6.2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
