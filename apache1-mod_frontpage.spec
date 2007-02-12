@@ -1,7 +1,7 @@
 %define 	mod_name	frontpage
 %define		apxs		/usr/sbin/apxs1
 Summary:	The improved mod_frontpage module for the Apache Web server
-Summary(pl.UTF-8):   Ulepszony moduł mod_frontpage dla serwera Apache
+Summary(pl.UTF-8):	Ulepszony moduł mod_frontpage dla serwera Apache
 Name:		apache1-mod_%{mod_name}
 Version:	1.6.2
 Release:	3
