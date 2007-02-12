@@ -1,7 +1,7 @@
 %define 	mod_name	frontpage
 %define		apxs		/usr/sbin/apxs1
 Summary:	The improved mod_frontpage module for the Apache Web server
-Summary(pl):	Ulepszony modu≥ mod_frontpage dla serwera Apache
+Summary(pl.UTF-8):   Ulepszony modu≈Ç mod_frontpage dla serwera Apache
 Name:		apache1-mod_%{mod_name}
 Version:	1.6.2
 Release:	3
@@ -36,15 +36,15 @@ subwebs using the FrontPage client in contrast to creating them as
 user "root" with "fpinstall.sh" or the "fpsrvadm.exe"-utility on the
 system's shell).
 
-%description -l pl
-To jest modu≥ dla serwera HTTP Apache. ZastÍpuje ≥aty Apache-FP oraz
-modu≥ dodawany do FrontPage Server Extensions dostÍpnych od Microsoftu
+%description -l pl.UTF-8
+To jest modu≈Ç dla serwera HTTP Apache. Zastƒôpuje ≈Çaty Apache-FP oraz
+modu≈Ç dodawany do FrontPage Server Extensions dostƒôpnych od Microsoftu
 i Ready-to-Run Software (<http://www.rtr.com/fpsupport/>).
 
-Uøycie tego modu≥u pozwala na uøywanie zaawansowanych moøliwo∂ci
+U≈ºycie tego modu≈Çu pozwala na u≈ºywanie zaawansowanych mo≈ºliwo≈õci
 klienta FrontPage z serwerem Apache (np. tworzenie podstron z
-rozszerzeniami FrontPage przy uøyciu klienta FrontPage zamiast przez
-uruchamiania fpinstall.sh lub fpsrvadm.exe z pow≥oki systemowej).
+rozszerzeniami FrontPage przy u≈ºyciu klienta FrontPage zamiast przez
+uruchamiania fpinstall.sh lub fpsrvadm.exe z pow≈Çoki systemowej).
 
 %prep
 %setup -q -n mod_%{mod_name}_mirfak-%{version}
