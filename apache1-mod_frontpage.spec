@@ -13,7 +13,7 @@ Source1:	%{name}.pl
 Patch0:		%{name}-mirfak.patch
 URL:		http://mirfak.sourceforge.net/
 BuildRequires:	%{__perl}
-BuildRequires:	apache1-devel >= 1.3.33-2
+BuildRequires:	apache1-devel >= 1.3.39
 BuildRequires:	rpmbuild(macros) >= 1.268
 Requires(triggerpostun):	%{apxs}
 Requires:	apache1(EAPI)
